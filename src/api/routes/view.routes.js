@@ -4,6 +4,9 @@ import { vistaConsultar, vistaCrear, vistaEliminar, vistaListado, vistaModificar
 
 const router = Router();
 
+
+
+
 //Ruta de las vistas EJS
 
 router.get("/",vistaListado);

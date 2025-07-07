@@ -32,10 +32,8 @@ export const getAllProducts = async ( req , res) => {
 
         res.status(500).json({
             error: "Error interno del servidor al obtener productos"
-        })//hubo un error interno status 500 
-        
+        })
     }
-    
 };
 
 

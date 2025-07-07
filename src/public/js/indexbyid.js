@@ -36,9 +36,6 @@ getProducts_form.addEventListener("submit" , async (event) => {
             throw new Error(`Error ${response.status}: ${response.statusText}`); // Error 404: Not Found
         }
 
-        if(!datos.payload || datos.payload.length === 0){
-            throw new Error("No se encontro el producto seleccionado"); 
-        }
 
         //guardamos producto en una variable
         let producto = datos.payload[0]; 

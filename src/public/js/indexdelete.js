@@ -23,13 +23,17 @@ getProducts_form.addEventListener("submit" , async (event) => {
 
         // ahora que obtenemos el objeto con el campo de idprod , vamos a guardarlos en una variable
         let idProd = data.idProd.trim();// el trim es para eliminar posibles espacios
+        
+        if(!idProd) {
+            throw new Error(`Error en el envio de datos del formulario`);
+        };
 
         let response = await fetch(`${url}/products/${idProd}`);
 
         let datos = await response.json();
-
-        if(!datos.payload || datos.payload.length === 0){
-            throw new Error("No se encontro el producto seleccionado"); 
+        
+        if(!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`); // Error 404: Not Found
         }
 
         //guardamos producto en una variable
@@ -39,6 +43,7 @@ getProducts_form.addEventListener("submit" , async (event) => {
 
     }catch(error){
         console.error("Error al obtener producto" , error);
+        getId_lista.innerHTML = `<p>${error.message}</p>`
     }
 })
 
@@ -93,7 +98,7 @@ async function eliminarProducto(id){
             return false;
         }
     } catch(error){
-        console.error("Error aen la solicitud DELETE",error);
+        console.error("Error en la solicitud DELETE",error);
         alert("Ocurrio un error al eliminar un producto");
         return false;
     }
