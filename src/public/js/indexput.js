@@ -91,15 +91,15 @@ let updateProduct = `
 
                         <label for="categoryProd">Categoria</label>
                         <select name="category" id="categoryProd" required>
-                            <option value="food">suplemento</option>
-                            <option value="drink">equipamiento</option>
+                            <option value="suplemento">suplemento</option>
+                            <option value="equipamiento">equipamiento</option>
                         </select>
 
                         <label for="imagenProd">Imagen</label>
                         <input type="text" name="image" id="imagenProd" value=${producto.image} required>
 
                         <label for="nombreUser">Nombre</label>
-                        <input type="text" name="name" id="nombreUser" value=${producto.name} required>
+                        <input type="text" name="name" id="nombreUser" value="${producto.name}" required>
 
                         <label for="precioProd">Precio</label>
                         <input type="number" name="price" id="precioProd" value=${producto.price} required>

@@ -35,11 +35,11 @@ const insertNewProduct = async (category,image,name ,price) => {
 const updateProduct = async (id,category, image, name ,price) => {
             let sql = `
             UPDATE products
-            SET name = ?, image = ?, price = ?, category = ?
+            SET category = ?, image = ?, name = ?, price = ?
             WHERE id = ?
         `;
 
-        return await connection.query(sql, [name, image, price, category, id]);
+        return await connection.query(sql, [category, image, name, price, id]);
 }
 
 // Delete product
