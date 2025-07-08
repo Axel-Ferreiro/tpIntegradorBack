@@ -1,6 +1,5 @@
-/* /////////////
-    Estilos globales
-///////////// */
+/* Estilos globales */
+
 h1 {
     text-align: center;
 }
@@ -10,9 +9,7 @@ h1 {
 }
 
 
-/* /////////////
-    Header
-///////////// */
+/* Header */
 
 p {
     text-align: center;
@@ -23,9 +20,6 @@ header {
     flex-direction: column;
 }
 
-.img-logo {
-    width: 55px; 
-}
 
 #logo-nav {
     display: flex;
@@ -43,9 +37,8 @@ header {
 }
 
 
-/* /////////////
-    index
-///////////// */
+/* Index */
+
 .li-listados {
     display: flex;
     align-items: center;
@@ -70,9 +63,7 @@ header {
 }
 
 
-/* ===============================
-        LISTADOS DINAMICOS
-================================== */
+/* Listados dinamicos */
 
 .li-listados_boton {
     width: 25%;
