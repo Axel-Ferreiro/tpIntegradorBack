@@ -11,12 +11,6 @@ export const getAllProducts = async ( req , res) => {
 
     try{
 
-        /*
-        let sql = `SELECT * FROM products`;
-    
-        /// al usar [rows] la destructuracion extrae directamente las filas , que es el primer resultado de la consulta , esto hace que el codigo mas legible
-        let [rows] = await connection.query(sql);
-        */
         
         let [rows] = await Products.selectAllProducts();
 
@@ -46,13 +40,6 @@ export const getProductById =  async (req , res) => {
         //let id = req.params.id;
         let {id} = req.params; 
 
-        /* LOGICA EXPORTADA
-        // let sql = `SELECT * FROM products where id = ${id}`;//consulta no optimizada porq permite inyeccion sql
-
-        let sql = `SELECT * FROM products where id = ?`;
-        
-        let [rows] = await connection.query(sql , [id]);
-        */
 
         const [rows] = await Products.selectProductFromId(id);
 
@@ -91,13 +78,6 @@ export const createProduct = async (req,res) => {
             })
         }
 
-        /* Logica exportada
-        // usamos placeholder ? proteccion sql injection , o sea q vamos a meter category image name price en los lugares ? ? ? ? , en su debido orden 
-        let sql = `INSERT INTO products (category , image , name , price) VALUES (? ,?, ?,?) `
-
-        let [rows] = await connection.query(sql, [category,image,name,price]);*/
-
-
         const [rows] = await Products.insertNewProduct(category,image,name,price);
 
 
@@ -134,14 +114,6 @@ export const modifyProduct = async (req, res) => {
             });
         }
 
-        /* LOGICA EXPORTADA
-        let sql = `
-            UPDATE products
-            SET name = ?, image = ?, price = ?, category = ?
-            WHERE id = ?
-        `;
-
-        let [result] = await connection.query(sql, [name, image, price, category, id]);*/
 
         const [result] = await Products.updateProduct(id,category,image,name,price);
 
@@ -172,10 +144,6 @@ export const removeProduct = async (req, res) =>{
             })
         }
 
-        /*
-        let sql = `DELETE FROM products WHERE  id = ?`;
-
-        let [result] = await connection.query(sql, [id]);*/
 
         const [result] = await Products.deleteProduct(id);
         

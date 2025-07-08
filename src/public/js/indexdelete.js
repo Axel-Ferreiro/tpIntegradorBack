@@ -10,8 +10,6 @@ getProducts_form.addEventListener("submit" , async (event) => {
     
     try{
 
-        //Optimizaciones 
-        getId_lista.innerHTML = " <p>Cargando producto...</p>"
         //queremos extraer la informacion de los campos del formulario, es un objeto javaScript especifico de informacion de formularios html , Formdata es una clase nativa de JavaScript
         let formData = new FormData(event.target);
 
